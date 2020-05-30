@@ -1,6 +1,8 @@
+using System.Collections.Generic;
+
 namespace PeopleHub.Domain.ValueObjects
 {
-    public class Name
+    public class Name : ValueObject
     {
         public Name(string firstName, string lastName)
         {
@@ -15,6 +17,12 @@ namespace PeopleHub.Domain.ValueObjects
         public override string ToString()
         {
             return $"{FirstName} {LastName}";
+        }
+
+        protected override IEnumerable<object> GetAtomicValues()
+        {
+            yield return FirstName;
+            yield return LastName;
         }
     }
 }

@@ -12,15 +12,25 @@ namespace PeopleHub.Domain.Entities
             string email,
             DateTime birthDate,
             Gender gender,
-            string photoUrl) : base(id)
+            string photoUrl) : this(id, email, birthDate, gender, photoUrl)
         {
             this.Name = name;
+        }
+
+        private User(
+            Guid id,
+            string email,
+            DateTime birthDate,
+            Gender gender,
+            string photoUrl) : base(id)
+        {
             this.Email = email;
             this.BirthDate = birthDate;
             this.Gender = gender;
             this.PhotoUrl = photoUrl;
         }
-        public Name Name { get; private set; }
+
+        public virtual Name Name { get; private set; }
         public string Email { get; private set; }
         public DateTime BirthDate { get; private set; }
         public Gender Gender { get; private set; }
