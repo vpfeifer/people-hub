@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using PeopleHub.Domain.Enums;
 using PeopleHub.Domain.ValueObjects;
 
@@ -38,5 +39,6 @@ namespace PeopleHub.Domain.Entities
         public Gender Gender { get; private set; }
         public string PhotoUrl { get; private set; }
         public virtual Document Document { get; private set; }
+        public virtual ICollection<Post> Posts { get; private set; }
     }
 }

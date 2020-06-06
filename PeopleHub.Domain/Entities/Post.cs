@@ -12,5 +12,7 @@ namespace PeopleHub.Domain.Entities
 
         public DateTime CreatedDate { get; private set; }
         public string Message { get; private set; }
+        public Guid UserId { get; set; }
+        public virtual User User { get; set; }
     }
 }

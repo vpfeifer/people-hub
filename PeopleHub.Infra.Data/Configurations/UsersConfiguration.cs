@@ -27,6 +27,8 @@ namespace PeopleHub.Infra.Data.Configurations
             builder.HasOne(u => u.Document)
                 .WithOne(d => d.User)
                 .HasForeignKey<Document>(d => d.UserId);
+            builder.HasMany(u => u.Posts)
+                .WithOne(p => p.User);
         }
     }
 }
