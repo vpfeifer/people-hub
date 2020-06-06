@@ -8,6 +8,7 @@ namespace PeopleHub.Infra.Data
     {
         public DbSet<User> Users;
         public DbSet<Post> Posts;
+        public DbSet<Document> Documents;
 
         public PeopleHubContext(DbContextOptions options) : base(options)
         {
@@ -18,6 +19,7 @@ namespace PeopleHub.Infra.Data
         {
             modelBuilder.ApplyConfiguration(new UsersConfiguration());
             modelBuilder.ApplyConfiguration(new PostsConfiguration());
+            modelBuilder.ApplyConfiguration(new DocumentsConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -12,9 +12,11 @@ namespace PeopleHub.Domain.Entities
             string email,
             DateTime birthDate,
             Gender gender,
-            string photoUrl) : this(id, email, birthDate, gender, photoUrl)
+            string photoUrl, 
+            Document document) : this(id, email, birthDate, gender, photoUrl)
         {
             this.Name = name;
+            this.Document = document;
         }
 
         private User(
@@ -35,5 +37,6 @@ namespace PeopleHub.Domain.Entities
         public DateTime BirthDate { get; private set; }
         public Gender Gender { get; private set; }
         public string PhotoUrl { get; private set; }
+        public virtual Document Document { get; private set; }
     }
 }

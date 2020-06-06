@@ -24,6 +24,9 @@ namespace PeopleHub.Infra.Data.Configurations
             builder.Property(u => u.BirthDate).IsRequired();
             builder.Property(u => u.Gender).IsRequired();
             builder.Property(u => u.PhotoUrl).HasMaxLength(400);
+            builder.HasOne(u => u.Document)
+                .WithOne(d => d.User)
+                .HasForeignKey<Document>(d => d.UserId);
         }
     }
 }
