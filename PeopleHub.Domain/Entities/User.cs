@@ -40,5 +40,6 @@ namespace PeopleHub.Domain.Entities
         public string PhotoUrl { get; private set; }
         public virtual Document Document { get; private set; }
         public virtual ICollection<Post> Posts { get; private set; }
+        public virtual ICollection<UserGroup> Groups { get; private set; }
     }
 }

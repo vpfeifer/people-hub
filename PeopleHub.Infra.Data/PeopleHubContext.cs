@@ -9,6 +9,8 @@ namespace PeopleHub.Infra.Data
         public DbSet<User> Users;
         public DbSet<Post> Posts;
         public DbSet<Document> Documents;
+        public DbSet<Group> Groups;
+        public DbSet<UserGroup> UserGroups;
 
         public PeopleHubContext(DbContextOptions options) : base(options)
         {
@@ -20,6 +22,8 @@ namespace PeopleHub.Infra.Data
             modelBuilder.ApplyConfiguration(new UsersConfiguration());
             modelBuilder.ApplyConfiguration(new PostsConfiguration());
             modelBuilder.ApplyConfiguration(new DocumentsConfiguration());
+            modelBuilder.ApplyConfiguration(new GroupConfiguration());
+            modelBuilder.ApplyConfiguration(new UserGroupConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }
