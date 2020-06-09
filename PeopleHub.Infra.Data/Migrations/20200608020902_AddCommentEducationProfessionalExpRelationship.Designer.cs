@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PeopleHub.Infra.Data;
 
 namespace PeopleHub.Infra.Data.Migrations
 {
     [DbContext(typeof(PeopleHubContext))]
-    partial class PeopleHubContextModelSnapshot : ModelSnapshot
+    [Migration("20200608020902_AddCommentEducationProfessionalExpRelationship")]
+    partial class AddCommentEducationProfessionalExpRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,49 +182,11 @@ namespace PeopleHub.Infra.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
-                        .HasMaxLength(50);
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
                     b.ToTable("relationship_status");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Unknown"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Single"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Casual"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Crush"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Dating"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Description = "Engaged"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "Married"
-                        });
                 });
 
             modelBuilder.Entity("PeopleHub.Domain.Entities.User", b =>

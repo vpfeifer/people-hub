@@ -13,11 +13,9 @@ namespace PeopleHub.Domain.Entities
             string email,
             DateTime birthDate,
             Gender gender,
-            string photoUrl, 
-            Document document) : this(id, email, birthDate, gender, photoUrl)
+            string photoUrl) : this(id, email, birthDate, gender, photoUrl)
         {
             this.Name = name;
-            this.Document = document;
         }
 
         private User(
@@ -31,6 +29,12 @@ namespace PeopleHub.Domain.Entities
             this.BirthDate = birthDate;
             this.Gender = gender;
             this.PhotoUrl = photoUrl;
+            Posts = new List<Post>();
+            Groups = new List<UserGroup>();
+            ProfessionalExperience = new List<ProfessionalExperience>();
+            EducationalBackground = new List<Education>();
+            Friends = new List<Friend>();
+            Comments = new List<Comment>();
         }
 
         public virtual Name Name { get; private set; }
@@ -38,8 +42,12 @@ namespace PeopleHub.Domain.Entities
         public DateTime BirthDate { get; private set; }
         public Gender Gender { get; private set; }
         public string PhotoUrl { get; private set; }
-        public virtual Document Document { get; private set; }
+        public virtual RelationshipStatus RelationshipStatus { get; set; }
         public virtual ICollection<Post> Posts { get; private set; }
         public virtual ICollection<UserGroup> Groups { get; private set; }
+        public virtual ICollection<ProfessionalExperience> ProfessionalExperience { get; private set; }
+        public virtual ICollection<Education> EducationalBackground { get; private set; }
+        public virtual ICollection<Friend> Friends { get; private set; }
+        public virtual ICollection<Comment> Comments { get; private set; }
     }
 }

@@ -4,12 +4,16 @@ namespace PeopleHub.Domain.Entities
 {
     public class Friend
     {
-        public Friend(Guid userId, User user, Guid friendId, User userFriend)
+        public Friend(User user, User userFriend) : this(user.Id, userFriend.Id)
+        {
+            User = user;
+            UserFriend = userFriend;
+        }
+
+        private Friend(Guid userId, Guid friendId)
         {
             UserId = userId;
-            User = user;
             FriendId = friendId;
-            UserFriend = userFriend;
         }
 
         public Guid UserId { get; private set; }
