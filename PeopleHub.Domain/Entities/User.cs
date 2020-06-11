@@ -18,7 +18,7 @@ namespace PeopleHub.Domain.Entities
             this.Name = name;
         }
 
-        private User(
+        public User(
             Guid id,
             string email,
             DateTime birthDate,
@@ -29,12 +29,12 @@ namespace PeopleHub.Domain.Entities
             this.BirthDate = birthDate;
             this.Gender = gender;
             this.PhotoUrl = photoUrl;
-            Posts = new List<Post>();
-            Groups = new List<UserGroup>();
-            ProfessionalExperience = new List<ProfessionalExperience>();
-            EducationalBackground = new List<Education>();
-            Friends = new List<Friend>();
-            Comments = new List<Comment>();
+            this.Posts = new List<Post>();
+            this.Groups = new List<UserGroup>();
+            this.ProfessionalExperience = new List<ProfessionalExperience>();
+            this.EducationalBackground = new List<Education>();
+            this.Friends = new List<Friend>();
+            this.Comments = new List<Comment>();
         }
 
         public virtual Name Name { get; private set; }

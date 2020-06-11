@@ -6,15 +6,15 @@ namespace PeopleHub.Infra.Data
 {
     public class PeopleHubContext : DbContext
     {
-        public DbSet<User> Users;
-        public DbSet<Post> Posts;
-        public DbSet<Group> Groups;
-        public DbSet<UserGroup> UserGroups;
-        public DbSet<Comment> Comments;
-        public DbSet<Education> EducationalBackground;
-        public DbSet<ProfessionalExperience> ProfessionalExperience;
-        public DbSet<Friend> Friends;
-        public DbSet<RelationshipStatus> RelationshipStatus;
+        public DbSet<User> Users { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<UserGroup> UserGroups { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Education> EducationalBackground { get; set; }
+        public DbSet<ProfessionalExperience> ProfessionalExperience { get; set; }
+        public DbSet<Friend> Friends { get; set; }
+        public DbSet<RelationshipStatus> RelationshipStatus { get; set; }
 
         public PeopleHubContext(DbContextOptions options) : base(options)
         {
